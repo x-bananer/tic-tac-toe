@@ -59,8 +59,12 @@ export default {
 
     const move = (x, y) => {
       if (winner.value) return;
-      squares.value[x][y] = player.value;
-      player.value = player.value === "O" ? "X" : "O";
+      if (squares.value[x][y]) {
+        return
+      } else {
+        squares.value[x][y] = player.value;
+        player.value = player.value === "O" ? "X" : "O";
+      }
     };
 
     const reset = () => {
@@ -98,12 +102,12 @@ export default {
   color: #fff;
   font-weight: bold;
   line-height: 34px;
-  height: 130px;
+  height: 110px;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 130px;
+  width: 110px;
 }
 
 .sign {
